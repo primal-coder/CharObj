@@ -1,0 +1,7 @@
+__pycache__
+.venv
+.idea
+.charm_env
+CharObj.egg-info
+*.log
+saves
