@@ -1,12 +1,10 @@
 from typing import Union as _Union, Optional as _Optional
-from CharObj import load_dict
+from CharObj._dicts import _WEAPONS_DICT
 import re as _re
 from dicepy import Die
 from ..item import _Item
 
 _Die = Die.Die
-
-_WEAPONS_DICT = load_dict('weapons')
 
 _WEAPON_PROFICIENCIES = ['SIMPLE', 'MARTIAL', 'EXOTIC', 'MASTER']
 
@@ -22,6 +20,7 @@ class _Weapon(_Item):
             item_id: _Optional[int] = None,
             name: _Optional[str] = None,
             slot: _Optional[_Union[str, tuple[str, str]]] = None,
+            category: _Optional[str] = None,
             weight: _Optional[list[float, str]] = None,
             material: _Optional[str] = None,
             mundane: _Optional[bool] = None,
@@ -52,7 +51,7 @@ class _Weapon(_Item):
         super(_Weapon, self).__init__(
                 item_id=item_id,
                 name=name,
-                category="WEAPON",
+                category=category if category is not None else 'WEAPON',
                 slot=slot
                 if slot in ('MAIN_HAND', 'OFF_HAND', ('MAIN_HAND', 'OFF_HAND'))
                 else None,
@@ -71,7 +70,7 @@ class _Weapon(_Item):
         )
 
     def __repr__(self):
-        return f'{self.description.lower()}.'
+        return f'{self.name.lower()}.'
 
     def __str__(self):
         return f"{self.name.upper()}({self.damage[0]}{self.damage[1]}@{self.weapon_range[0]}{self.weapon_range[1]})(" \

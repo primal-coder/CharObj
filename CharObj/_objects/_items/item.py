@@ -3,7 +3,7 @@ import re
 from pyglet.event import EventDispatcher as _EventDispatcher
 from typing import Optional as _Optional, Union as _Union
 
-from CharObj import load_dict
+from CharObj._dicts import _TRADE_DICT, _GENERAL_DICT, _TOOLS_DICT
 
 _WEIGHTS = ['mg', 'g', 'kg']
 
@@ -15,7 +15,7 @@ _ITEM_EVENTS = ['on_pickup', 'on_drop', 'on_equip', 'on_unequip', 'on_use', 'on_
                 'on_cast', 'on_activate',
                 'on_repair', 'on_recharge']
 
-_ITEM_CATEGORIES = ['FOOD', 'CLOTHING', 'TOYS', 'TOOLS', 'EQUIPMENT', 'WEAPONS', 'ARMOR', 'JEWELRY', 'GEMS', 'ORE',
+_ITEM_CATEGORIES = ['FOOD', 'CLOTHING', 'TOYS', 'TOOLS', 'EQUIPMENT', 'WEAPON', 'ARMOR', 'JEWELRY', 'GEMS', 'ORE',
                     'MATERIALS', 'POTIONS', 'SCROLLS', 'BOOKS', 'RELICS', 'MISC']
 
 _ITEM_SLOT = ['HEAD', 'NECK', 'LEFT_SHOULDER', 'RIGHT_SHOULDER', 'CHEST', 'BACK', 'LEFT_WRIST', 'RIGHT_WRIST',
@@ -29,10 +29,6 @@ _MATERIAL_TYPES = ['WOOD', 'LEATHER', 'CLOTH', 'BURLAP', 'IRON', 'BRONZE', 'STEE
 _QUALITY_TYPES = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'ARTIFACT', 'MYTHIC']
 
 _BINDINGS = ['BOUND', 'UNBOUND']
-
-_GENERAL_ITEMS_DICT = load_dict('general_items')
-
-_TRADE_ITEMS_DICT = load_dict('trade_items')
 
 
 class AbstractItem(ABC):
@@ -54,6 +50,7 @@ class AbstractItem(ABC):
     _identified = None
     _equipped = None
     _owner = None
+    _views = None
 
     @property
     def item_id(self) -> int:
@@ -199,6 +196,10 @@ class AbstractItem(ABC):
     def owner(self, owner: _Optional[object]) -> None:
         self._owner = owner
     
+    @property
+    def views(self) -> _Optional[dict]:
+        return self._views
+
     def _dispatch_event(self, event: str, *args, **kwargs):
         self.dispatcher.dispatch_event(event, *args, **kwargs)
 
@@ -229,6 +230,8 @@ class AbstractItem(ABC):
 
     def _consume(self):
         self._dispatch_event('on_consume', self)
+        
+
 
 class _Item(AbstractItem):
     dispatcher = _EventDispatcher()
@@ -274,12 +277,47 @@ class _Item(AbstractItem):
         self.identified = False
         self.equipped = False
         self.owner = None
+        # self._views = {
+        #     'Close': {f'{i}': self.description for i in range(8)}, 
+        #     'Near': {f'{i}': f'A{" " if getattr(self, "category")[0] not in "AEIOUaeiou" else "n "}{getattr(self, "category").lower()}' for i in range(8)}, 
+        #     'Far': {f'{i}': f'A{" " if getattr(self, "category")[0] not in "AEIOUaeiou" else "n "}{getattr(self, "category").lower()}' for i in range(8)}
+        #     }
+
         
     def __repr__(self):
-        return f'{self.description.lower()}'
+        return f'{self.name.lower()}'
 
     def __str__(self):
-        return f'{self.name}[{self.category}][{self.value[0]} {self.value[1]}][{self.weight[0]} {self.weight[1]}]'
+        return f'{self.name}[{self.weight[0]} {self.weight[1]}]'
+    
+    def __json__(self):
+        return {
+            'item_id': self.item_id,
+            'name': self.name,
+            'category': self.category,
+            'slot': self.slot,
+            'weight': self.weight,
+            'material': self.material,
+            'consumable': self.consumable,
+            'mundane': self.mundane,
+            'description': self.description,
+            'quality': self.quality,
+            'value': self.value,
+            'binding': self.binding,
+            'quest_item': self.quest_item,
+            'relic': self.relic,
+            'stackable': self.stackable,
+            'identified': self.identified,
+            'equipped': self.equipped,
+            'owner': '{{ owner }}'
+        }
+
+    def __view__(self, From: tuple[int, int] = None):
+        direction, distance = From
+        if 7 > direction >= 0 and distance >= 0:
+            distance = 'Far' if distance >= 50 else 'Near' if distance >= 20 else 'Close'
+            return self.views[distance][From]
+
 
     def identify(self):
         if self.identified:
@@ -291,22 +329,26 @@ class ItemByClass(_Item):
     def __init__(self):
         item_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', self.__class__.__name__)
         item_name = re.sub(r'([a-z])(and )', r'\1 And ', item_name)
-        if item_name in _GENERAL_ITEMS_DICT:
-            super(ItemByClass, self).__init__(**_GENERAL_ITEMS_DICT[item_name])
-        elif item_name in _TRADE_ITEMS_DICT:
-            super(ItemByClass, self).__init__(**_TRADE_ITEMS_DICT[item_name])
+        if item_name in _GENERAL_DICT:
+            super(ItemByClass, self).__init__(**_GENERAL_DICT[item_name])
+        elif item_name in _TRADE_DICT:
+            super(ItemByClass, self).__init__(**_TRADE_DICT[item_name])
             
 class GeneralItemByClass(_Item):
     def __init__(self):
         item_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', self.__class__.__name__)
-        super(GeneralItemByClass, self).__init__(**_GENERAL_ITEMS_DICT[item_name])
+        super(GeneralItemByClass, self).__init__(**_GENERAL_DICT[item_name])
 
 class TradeItemByClass(_Item):
     def __init__(self):
         item_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', self.__class__.__name__)
-        super(TradeItemByClass, self).__init__(**_TRADE_ITEMS_DICT[item_name])
+        super(TradeItemByClass, self).__init__(**_TRADE_DICT[item_name])
 
-
+class ToolByClass(_Item):
+    def __init__(self):
+        item_name = re.sub(r'([a-z])([A-Z])', r'\1 \2', self.__class__.__name__)
+        super(ToolByClass, self).__init__(**_TOOLS_DICT[item_name])
+        
 class _ItemStack:
     def __init__(self, item: _Item, quantity: int):
         self.name = item.name
@@ -344,4 +386,9 @@ class _ItemFactory:
     @staticmethod
     def create_trade_item(item_name: str) -> _Item:
         item_class = type(item_name.replace(' ', '').replace("'", ''), (TradeItemByClass,), {})
+        return None if item_class is None else item_class
+
+    @staticmethod
+    def create_tool(item_name: str) -> _Item:
+        item_class = type(item_name.replace(' ', '').replace("'", ''), (ToolByClass,), {})
         return None if item_class is None else item_class

@@ -43,35 +43,36 @@ Each already existing item is stored in its respective json file in the 'dict' d
 
 
 ```python
-import CharObj
-
+>>> import CharObj
 # Create a new instance of an item
-gold_coin = CharObj.Goods.goldcoin()
-
+>>> gold_coin_1 = CharObj.Goods.goldcoin()
+>>> gold_coin_2 = CharObj.Goods.goldcoin()
 # Print the name of the item
-print(gold_coin.name)
-# Gold Coin
-
-# Print the description of the item
-print(gold_coin.description)
+>>> print(gold_coin_1.name)
+Gold Coin
+>>> print(gold_coin_2.name)
+Gold Coin
+# Check if the two items are the same
+>>> print(gold_coin_1 == gold_coin_2)
+False
 ```
 
 ### Command-Line
 
 ```bash
-python -m CharObj Get 1
-# Gold Coin
-# {'binding': 'UNBOUND',
-#  'category': 'MISC',
-#  'description': 'A gold coin',
-#  'item_id': 1,
-#  'material': 'GOLD',
-#  'mundane': True,
-#  'name': 'Gold Coin',
-#  'quality': 'COMMON',
-#  'quest_item': False,
-#  'relic': False,
-#  'stackable': True,
-#  'value': [1, 'gp'],
-#  'weight': [0.01, 'kg']}
+$ python -m CharObj Get 1
+Gold Coin
+{'binding': 'UNBOUND',
+ 'category': 'MISC',
+ 'description': 'A gold coin',
+ 'item_id': 1,
+ 'material': 'GOLD',
+ 'mundane': True,
+ 'name': 'Gold Coin',
+ 'quality': 'COMMON',
+ 'quest_item': False,
+ 'relic': False,
+ 'stackable': True,
+ 'value': [1, 'gp'],
+ 'weight': [0.01, 'kg']}
 ```

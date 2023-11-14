@@ -1,7 +1,7 @@
 from __future__ import annotations
 from abc import ABC as _ABC
 from typing import Optional as _Optional, Union as _Union, List as _List
-from .item import _ItemFactory, _GENERAL_ITEMS_DICT, _TRADE_ITEMS_DICT
+from .item import _ItemFactory, _GENERAL_DICT, _TRADE_DICT, _TOOLS_DICT
 from ._weapon import _WeaponFactory, _WEAPONS_DICT
 from ._clothing import _ClothingFactory, _CLOTHING_DICT
 from ._armor import ArmorFactory, _ARMOR_DICT
@@ -10,8 +10,8 @@ import grid_engine as ge
 
 GridObject = ge.GridObject
 
-MANIFESTS = ['weapons', 'clothing', 'armor', 'general', 'trade']
-DICTS = [_WEAPONS_DICT, _CLOTHING_DICT, _ARMOR_DICT, _GENERAL_ITEMS_DICT, _TRADE_ITEMS_DICT]
+MANIFESTS = ['weapons', 'clothing', 'armor', 'general', 'trade', 'tools']
+DICTS = [_WEAPONS_DICT, _CLOTHING_DICT, _ARMOR_DICT, _GENERAL_DICT, _TRADE_DICT, _TOOLS_DICT]
 
 
 class Cell(_ABC):
@@ -141,13 +141,13 @@ class _Armory(QuietDict):
 
 class _Goods(QuietDict):
     def __init__(self):
-        super(_Goods, self).__init__(['general', 'trade'])
+        super(_Goods, self).__init__(['general', 'trade', 'tools'])
         self._goods_classes = {}
         self._grid_instances = {}
         self._create_item_classes()
 
     def _create_item(self, item_name: str):
-        if item_name in list(_GENERAL_ITEMS_DICT.keys())+list(_TRADE_ITEMS_DICT.keys()):
+        if item_name in list(_GENERAL_DICT.keys())+list(_TRADE_DICT.keys())+list(_TOOLS_DICT.keys()):
             _item_class = _ItemFactory.create_item(item_name)
         return _item_class
 
@@ -158,38 +158,43 @@ class _Goods(QuietDict):
         ):
             return self.items[item_name]
 
-    def _create_grid_meta(self, item_name, item_class):
-        return type(
-            item_name.replace(" ", "").replace(",", "_").replace("-", ""), (item_class,),
-            {'dispatcher': EventDispatcher()}
-            )
-
     def _create_item_classes(self):
-        _ITEMS_DICT = {**_GENERAL_ITEMS_DICT, **_TRADE_ITEMS_DICT}
-        for _item_name, _item_attr in _ITEMS_DICT.items():
+        for item_kind in ['general', 'trade', 'tools']:
+            setattr(self, f'{item_kind}', type(f'{item_kind.capitalize()}', (QuietDict, ), {}))
+        for _item_name, _item_attr in _GENERAL_DICT.items():
             _item_class = self._create_item(_item_name)
             if _item_class is not None:
                 setattr(_item_class, '_entry', _item_attr)
-                # _item_instance = _item_class(**_GENERAL_ITEMS_DICT[_item_name])
+                # _item_instance = _item_class(**_GENERAL_DICT[_item_name])
                 # _goods_instances[_item_instance.name] = _item_instance
                 self._goods_classes[_item_name.replace(" ", "").replace(",", "_").replace("-", "")] = _item_class
                 setattr(
-                    self, _item_name.replace(" ", "").replace(",", "_").replace("-", "").replace("'", "").lower(),
+                    self.general, _item_name.replace(" ", "").replace(",", "_").replace("-", "").replace("'", "").lower(),
                     _item_class
                     )
                 self.general_manifest.append(_item_name)
-        for _item_name, _item_attr in _TRADE_ITEMS_DICT.items():
+        for _item_name, _item_attr in _TRADE_DICT.items():
             _item_class = self._create_item(_item_name)
             if _item_class is not None:
                 setattr(_item_class, '_entry', _item_attr)
-                # _item_instance = _item_class(**_TRADE_ITEMS_DICT[_item_name])
+                # _item_instance = _item_class(**_TRADE_DICT[_item_name])
                 # _goods_instances[_item_instance.name] = _item_instance
                 self._goods_classes[_item_name.replace(" ", "").replace(",", "_").replace("-", "")] = _item_class
                 setattr(
-                    self, _item_name.replace(" ", "").replace(",", "_").replace("-", "").replace("'", '').lower(),
+                    self.trade, _item_name.replace(" ", "").replace(",", "_").replace("-", "").replace("'", '').lower(),
                     _item_class
                     )
                 self.trade_manifest.append(_item_name)
+        for _item_name, _item_attr in _TOOLS_DICT.items():
+            _item_class = self._create_item(_item_name)
+            if _item_class is not None:
+                setattr(_item_class, '_entry', _item_attr)
+                self._goods_classes[_item_name.replace(" ", "").replace(",", "_").replace("-", "")] = _item_class
+                setattr(
+                    self.tools, _item_name.replace(" ", "").replace(",", "_").replace("-", "").replace("'", '').lower(),
+                    _item_class
+                    )
+                self.tools_manifest.append(_item_name)
         self.update(self._goods_classes)
 
     def get(self, item_name: str, grid: object = None, cell: object = None):
@@ -246,19 +251,19 @@ Goods = _Goods()
 
 # _goods_classes = {}
 
-# for _item_name, _item_attr in _GENERAL_ITEMS_DICT.items():
+# for _item_name, _item_attr in _GENERAL_DICT.items():
 #     _item_class = _ItemFactory.create_general_item(_item_name)
 #     if _item_class is not None:
-#         # _item_instance = _item_class(**_GENERAL_ITEMS_DICT[_item_name])
+#         # _item_instance = _item_class(**_GENERAL_DICT[_item_name])
 #         # _goods_instances[_item_instance.name] = _item_instance
 #         _goods_classes[_item_name.replace(" ", "").replace(",", "_").replace("-","")] = _item_class
 #         setattr(Goods, _item_name.replace(" ", "").replace(",", "_").replace("-","").replace("'",'').lower(),
 #         _item_class)
 #         Goods.general_manifest.append(_item_name)
-# for _item_name, _item_attr in _TRADE_ITEMS_DICT.items():
+# for _item_name, _item_attr in _TRADE_DICT.items():
 #     _item_class = _ItemFactory.create_trade_item(_item_name)
 #     if _item_class is not None:
-#         # _item_instance = _item_class(**_TRADE_ITEMS_DICT[_item_name])
+#         # _item_instance = _item_class(**_TRADE_DICT[_item_name])
 #         # _goods_instances[_item_instance.name] = _item_instance
 #         _goods_classes[_item_name.replace(" ", "").replace(",", "_").replace("-","")] = _item_class
 #         setattr(Goods, _item_name.replace(" ", "").replace(",", "_").replace("-","").replace("'",'').lower(), _item_class)

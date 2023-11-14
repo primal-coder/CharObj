@@ -1,6 +1,5 @@
 {
     "Gold Ore": {
-        "item_id": 107,
         "name": "Gold Ore",
         "category": "ORE",
         "weight": [
@@ -22,7 +21,6 @@
         "stackable": true
     },
     "Iron Ore": {
-        "item_id": 108,
         "name": "Iron Ore",
         "category": "ORE",
         "weight": [
@@ -44,7 +42,6 @@
         "stackable": true
     },
     "Copper Ore": {
-        "item_id": 109,
         "name": "Copper Ore",
         "category": "ORE",
         "weight": [
@@ -66,7 +63,6 @@
         "stackable": true
     },
     "Silver Ore": {
-        "item_id": 110,
         "name": "Silver Ore",
         "category": "ORE",
         "weight": [
@@ -88,7 +84,6 @@
         "stackable": true
     },
     "Mithril Ore": {
-        "item_id": 111,
         "name": "Mithril Ore",
         "category": "ORE",
         "weight": [
@@ -110,7 +105,6 @@
         "stackable": true
     },
     "Adamantite Ore": {
-        "item_id": 112,
         "name": "Adamantite Ore",
         "category": "ORE",
         "weight": [
@@ -132,7 +126,6 @@
         "stackable": true
     },
     "Runite Ore": {
-        "item_id": 113,
         "name": "Runite Ore",
         "category": "ORE",
         "weight": [
@@ -154,7 +147,6 @@
         "stackable": true
     },
     "Coal": {
-        "item_id": 114,
         "name": "Coal",
         "category": "ORE",
         "weight": [
@@ -176,7 +168,6 @@
         "stackable": true
     },
     "Gold Ingot": {
-        "item_id": 115,
         "name": "Gold Ingot",
         "category": "INGOT",
         "weight": [
@@ -198,7 +189,6 @@
         "stackable": true
     },
     "Iron Ingot": {
-        "item_id": 116,
         "name": "Iron Ingot",
         "category": "INGOT",
         "weight": [
@@ -220,7 +210,6 @@
         "stackable": true
     },
     "Copper Ingot": {
-        "item_id": 117,
         "name": "Copper Ingot",
         "category": "INGOT",
         "weight": [
@@ -242,7 +231,6 @@
         "stackable": true
     },
     "Silver Ingot": {
-        "item_id": 118,
         "name": "Silver Ingot",
         "category": "INGOT",
         "weight": [
@@ -264,7 +252,6 @@
         "stackable": true
     },
     "Mithril Ingot": {
-        "item_id": 119,
         "name": "Mithril Ingot",
         "category": "INGOT",
         "weight": [
@@ -286,7 +273,6 @@
         "stackable": true
     },
     "Adamantite Ingot": {
-        "item_id": 120,
         "name": "Adamantite Ingot",
         "category": "INGOT",
         "weight": [
@@ -308,7 +294,6 @@
         "stackable": true
     },
     "Runite Ingot": {
-        "item_id": 121,
         "name": "Runite Ingot",
         "category": "INGOT",
         "weight": [
@@ -330,7 +315,6 @@
         "stackable": true
     },
     "Bronze Ingot": {
-        "item_id": 122,
         "name": "Bronze Ingot",
         "category": "INGOT",
         "weight": [
@@ -352,7 +336,6 @@
         "stackable": true
     },
     "Steel Ingot": {
-        "item_id": 123,
         "name": "Steel Ingot",
         "category": "INGOT",
         "weight": [
@@ -374,7 +357,6 @@
         "stackable": true
     },
     "Oak Log": {
-        "item_id": 124,
         "name": "Oak Log",
         "category": "LOG",
         "weight": [
@@ -396,7 +378,6 @@
         "stackable": true
     },
     "Willow Log": {
-        "item_id": 125,
         "name": "Willow Log",
         "category": "LOG",
         "weight": [
@@ -418,7 +399,6 @@
         "stackable": true
     },
     "Maple Log": {
-        "item_id": 126,
         "name": "Maple Log",
         "category": "LOG",
         "weight": [
@@ -440,7 +420,6 @@
         "stackable": true
     },
     "Yew Log": {
-        "item_id": 127,
         "name": "Yew Log",
         "category": "LOG",
         "weight": [
@@ -462,7 +441,6 @@
         "stackable": true
     },
     "Flax Seed": {
-        "item_id": 128,
         "name": "Flax Seed",
         "category": "SEED",
         "weight": [
@@ -484,7 +462,6 @@
         "stackable": true
     },
     "Flax": {
-        "item_id": 129,
         "name": "Flax",
         "category": "FIBER",
         "weight": [
@@ -506,7 +483,6 @@
         "stackable": true
     },
     "Cotton Seed": {
-        "item_id": 130,
         "name": "Cotton Seed",
         "category": "SEED",
         "weight": [
@@ -528,7 +504,6 @@
         "stackable": true
     },
     "Cotton": {
-        "item_id": 131,
         "name": "Cotton",
         "category": "FIBER",
         "weight": [
@@ -550,7 +525,6 @@
         "stackable": true
     },
     "Wool": {
-        "item_id": 132,
         "name": "Wool",
         "category": "FIBER",
         "weight": [
@@ -572,7 +546,6 @@
         "stackable": true
     },
     "Silk": {
-        "item_id": 133,
         "name": "Silk",
         "category": "FIBER",
         "weight": [
@@ -594,7 +567,6 @@
         "stackable": true
     },
     "Leather": {
-        "item_id": 134,
         "name": "Leather",
         "category": "HIDE",
         "weight": [
@@ -616,7 +588,6 @@
         "stackable": true
     },
     "Quartz": {
-        "item_id": 135,
         "name": "Quartz",
         "category": "GEM",
         "weight": [
@@ -637,7 +608,6 @@
         "relic": false
     },
     "Calcite": {
-        "item_id": 136,
         "name": "Calcite",
         "category": "GEM",
         "weight": [
@@ -658,7 +628,6 @@
         "relic": false
     },
     "Agate": {
-        "item_id": 137,
         "name": "Agate",
         "category": "GEM",
         "weight": [
@@ -679,7 +648,6 @@
         "relic": false
     },
     "Amethyst": {
-        "item_id": 138,
         "name": "Amethyst",
         "category": "GEM",
         "weight": [
@@ -700,7 +668,6 @@
         "relic": false
     },
     "Garnet": {
-        "item_id": 139,
         "name": "Garnet",
         "category": "GEM",
         "weight": [
@@ -721,7 +688,6 @@
         "relic": false
     },
     "Moonstone": {
-        "item_id": 140,
         "name": "Moonstone",
         "category": "GEM",
         "weight": [
@@ -742,7 +708,6 @@
         "relic": false
     },
     "Turquoise": {
-        "item_id": 141,
         "name": "Turquoise",
         "category": "GEM",
         "weight": [
@@ -763,7 +728,6 @@
         "relic": false
     },
     "Malachite": {
-        "item_id": 142,
         "name": "Malachite",
         "category": "GEM",
         "weight": [
@@ -784,7 +748,6 @@
         "relic": false
     },
     "Jasper": {
-        "item_id": 143,
         "name": "Jasper",
         "category": "GEM",
         "weight": [
@@ -805,7 +768,6 @@
         "relic": false
     },
     "Jade": {
-        "item_id": 144,
         "name": "Jade",
         "category": "GEM",
         "weight": [
@@ -826,7 +788,6 @@
         "relic": false
     },
     "Zircon": {
-        "item_id": 145,
         "name": "Zircon",
         "category": "GEM",
         "weight": [
@@ -847,7 +808,6 @@
         "relic": false
     },
     "Emerald": {
-        "item_id": 146,
         "name": "Emerald",
         "category": "GEM",
         "weight": [
@@ -868,7 +828,6 @@
         "relic": false
     },
     "Diamond": {
-        "item_id": 147,
         "name": "Diamond",
         "category": "GEM",
         "weight": [

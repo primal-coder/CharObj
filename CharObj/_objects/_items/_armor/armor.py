@@ -1,4 +1,4 @@
-from CharObj import load_dict
+from CharObj._dicts import _ARMOR_DICT
 from typing import Union as _Union, Optional as _Optional
 from dicepy import Die
 from ..item import _Item
@@ -6,9 +6,6 @@ from ..item import _Item
 _Die = Die.Die
 
 import re
-
-_ARMOR_DICT = load_dict('armor')
-
 
 class _Armor(_Item):
     def __init__(
@@ -26,12 +23,13 @@ class _Armor(_Item):
             relic: _Optional[bool] = None,
             armor_class: _Optional[_Union[_Die, int]] = None,
             set_name: _Optional[str] = None,
+            category: _Optional[str] = None,
             *args, **kwargs
     ):
         super(_Armor, self).__init__(
             item_id=item_id,
             name=name,
-            category='ARMOR',
+            category=category if category is not None else 'ARMOR',
             slot=slot,
             weight=weight,
             material=material,
@@ -49,7 +47,7 @@ class _Armor(_Item):
         self.set_name = set_name
 
     def __repr__(self):
-        return f'{self.description.lower()}'
+        return f'{self.name.lower()}'
     
     def __str__(self):
         return f'{self.name.upper()}[ac {self.armor_class}]'

@@ -27,3 +27,23 @@ def load_list(name):
         raise ValueError(f'No such list: {name}')
     with open(f'{os.path.join(os.path.dirname(__file__), name)}_list.txt', 'r') as f:
         return [l.strip() for l in f.readlines()]
+
+def _set_ids(MASTER_CATALOGUE):
+    _ITEM_ID = 0
+    for I, catalogue in enumerate(_MASTER_CATALOGUE):
+        if I != 0:
+            _ITEM_ID += len(_MASTER_CATALOGUE.copy()[catalogue])
+        for name, info in _MASTER_CATALOGUE[catalogue].copy().items():
+            _MASTER_CATALOGUE[catalogue][name]['item_id'] = _ITEM_ID
+            _ITEM_ID += 1
+        
+    
+_MASTER_CATALOGUE = load_all_dicts()
+
+_set_ids(_MASTER_CATALOGUE)
+
+_ARMOR_DICT = _MASTER_CATALOGUE['armor']
+_WEAPONS_DICT = _MASTER_CATALOGUE['weapons']
+_GENERAL_DICT = _MASTER_CATALOGUE['general_items']
+_TRADE_DICT = _MASTER_CATALOGUE['trade_items']
+_TOOLS_DICT = _MASTER_CATALOGUE['tools']

@@ -1,7 +1,6 @@
 {
     "Club": {
         "name": "Club",
-        "item_id": 148,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -36,7 +35,6 @@
     },
     "Dagger": {
         "name": "Dagger",
-        "item_id": 149,
         "slot": "MAIN_HAND",
         "weight": [
             0.5,
@@ -73,7 +71,6 @@
     },
     "Greatclub": {
         "name": "Greatclub",
-        "item_id": 150,
         "slot": "MAIN_HAND",
         "weight": [
             5,
@@ -108,7 +105,6 @@
     },
     "Handaxe": {
         "name": "Handaxe",
-        "item_id": 151,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -144,7 +140,6 @@
     },
     "Javelin": {
         "name": "Javelin",
-        "item_id": 152,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -180,7 +175,6 @@
     },
     "Light Hammer": {
         "name": "Light Hammer",
-        "item_id": 153,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -216,7 +210,6 @@
     },
     "Mace": {
         "name": "Mace",
-        "item_id": 154,
         "slot": "MAIN_HAND",
         "weight": [
             2,
@@ -251,7 +244,6 @@
     },
     "Quarterstaff": {
         "name": "Quarterstaff",
-        "item_id": 155,
         "slot": "MAIN_HAND",
         "weight": [
             2.0,
@@ -286,7 +278,6 @@
     },
     "Sickle": {
         "name": "Sickle",
-        "item_id": 156,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -321,7 +312,6 @@
     },
     "Spear": {
         "name": "Spear",
-        "item_id": 157,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -357,7 +347,6 @@
     },
     "Halberd": {
         "name": "Halberd",
-        "item_id": 158,
         "slot": "MAIN_HAND",
         "weight": [
             3,
@@ -393,7 +382,6 @@
     },
     "Lance": {
         "name": "Lance",
-        "item_id": 159,
         "slot": "MAIN_HAND",
         "weight": [
             3,
@@ -429,7 +417,6 @@
     },
     "Longsword": {
         "name": "Longsword",
-        "item_id": 160,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -464,7 +451,6 @@
     },
     "Rapier": {
         "name": "Rapier",
-        "item_id": 173,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -499,7 +485,6 @@
     },
     "Scimitar": {
         "name": "Scimitar",
-        "item_id": 175,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -535,7 +520,6 @@
     },
     "Shortsword": {
         "name": "Shortsword",
-        "item_id": 163,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -570,7 +554,6 @@
     },
     "Trident": {
         "name": "Trident",
-        "item_id": 164,
         "slot": "MAIN_HAND",
         "weight": [
             2,
@@ -605,7 +588,6 @@
     },
     "War Pick": {
         "name": "War Pick",
-        "item_id": 165,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -637,7 +619,6 @@
     },
     "Warhammer": {
         "name": "Warhammer",
-        "item_id": 166,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -671,7 +652,6 @@
     },
     "Whip": {
         "name": "Whip",
-        "item_id": 167,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -706,7 +686,6 @@
     },
     "Battleaxe": {
         "name": "Battleaxe",
-        "item_id": 168,
         "slot": "MAIN_HAND",
         "weight": [
             2,
@@ -740,7 +719,6 @@
     },
     "Flail": {
         "name": "Flail",
-        "item_id": 169,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -772,7 +750,6 @@
     },
     "Glaive": {
         "name": "Glaive",
-        "item_id": 170,
         "slot": "MAIN_HAND",
         "weight": [
             3,
@@ -808,7 +785,6 @@
     },
     "Greataxe": {
         "name": "Greataxe",
-        "item_id": 171,
         "slot": "MAIN_HAND",
         "weight": [
             3.5,
@@ -843,7 +819,6 @@
     },
     "Greatsword": {
         "name": "Greatsword",
-        "item_id": 172,
         "slot": "MAIN_HAND",
         "weight": [
             3,
@@ -878,7 +853,6 @@
     },
     "Morningstar": {
         "name": "Morningstar",
-        "item_id": 174,
         "slot": "MAIN_HAND",
         "weight": [
             2,
@@ -912,7 +886,6 @@
     },
     "Longbow": {
         "name": "Longbow",
-        "item_id": 176,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -948,7 +921,6 @@
     },
     "Shortbow": {
         "name": "Short-bow",
-        "item_id": 177,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -983,7 +955,6 @@
     },
     "Crossbow, Light": {
         "name": "Crossbow, light",
-        "item_id": 178,
         "slot": "MAIN_HAND",
         "weight": [
             2.5,
@@ -1019,7 +990,6 @@
     },
     "Crossbow, Hand": {
         "name": "Crossbow, hand",
-        "item_id": 179,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -1054,7 +1024,6 @@
     },
     "Crossbow, Heavy": {
         "name": "Crossbow, heavy",
-        "item_id": 180,
         "slot": "MAIN_HAND",
         "weight": [
             9,
@@ -1091,7 +1060,6 @@
     },
     "Sling": {
         "name": "Sling",
-        "item_id": 181,
         "slot": "MAIN_HAND",
         "weight": [
             0.5,
@@ -1125,7 +1093,6 @@
     },
     "Claymore": {
         "name": "Claymore",
-        "item_id": 182,
         "slot": "MAIN_HAND",
         "weight": [
             2.5,
@@ -1160,7 +1127,6 @@
     },
     "Cutlass": {
         "name": "Cutlass",
-        "item_id": 183,
         "slot": "MAIN_HAND",
         "weight": [
             1.5,
@@ -1195,7 +1161,6 @@
     },
     "Falchion": {
         "name": "Falchion",
-        "item_id": 184,
         "slot": "MAIN_HAND",
         "weight": [
             2,
@@ -1229,7 +1194,6 @@
     },
     "Kukri": {
         "name": "Kukri",
-        "item_id": 185,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -1264,7 +1228,6 @@
     },
     "Sai": {
         "name": "Sai",
-        "item_id": 186,
         "slot": "MAIN_HAND",
         "weight": [
             0.5,
@@ -1299,7 +1262,6 @@
     },
     "Chakram": {
         "name": "Chakram",
-        "item_id": 187,
         "slot": "MAIN_HAND",
         "weight": [
             0.5,
@@ -1334,7 +1296,6 @@
     },
     "Meteor Hammer": {
         "name": "Meteor Hammer",
-        "item_id": 188,
         "slot": "MAIN_HAND",
         "weight": [
             5,
@@ -1370,7 +1331,6 @@
     },
     "Cestus": {
         "name": "Cestus",
-        "item_id": 189,
         "slot": "MAIN_HAND",
         "weight": [
             0.5,
@@ -1405,7 +1365,6 @@
     },
     "Wyrmblade": {
         "name": "Wyrmblade",
-        "item_id": 190,
         "slot": "MAIN_HAND",
         "weight": [
             2.5,
@@ -1439,7 +1398,6 @@
     },
     "Nightingale": {
         "name": "Nightingale",
-        "item_id": 191,
         "slot": "MAIN_HAND",
         "weight": [
             1,
@@ -1473,7 +1431,6 @@
     },
     "Sword Of The Sun": {
         "name": "Sword of the Sun",
-        "item_id": 192,
         "slot": "MAIN_HAND",
         "weight": [
             2.5,
@@ -1507,7 +1464,6 @@
     },
     "Sword Of The Moon": {
         "name": "Sword of the Moon",
-        "item_id": 193,
         "slot": "MAIN_HAND",
         "weight": [
             2.5,
