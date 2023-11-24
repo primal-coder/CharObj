@@ -333,6 +333,8 @@ class ItemByClass(_Item):
             super(ItemByClass, self).__init__(**_GENERAL_DICT[item_name])
         elif item_name in _TRADE_DICT:
             super(ItemByClass, self).__init__(**_TRADE_DICT[item_name])
+        elif item_name in _TOOLS_DICT:
+            super(ItemByClass, self).__init__(**_TOOLS_DICT[item_name])
             
 class GeneralItemByClass(_Item):
     def __init__(self):
@@ -357,7 +359,7 @@ class _ItemStack:
         self.weight = [item.weight[0] * quantity, item.weight[1]]
 
     def __repr__(self):
-        return f"{self.item} x{self.quantity}"
+        return f"{repr(self.item)}[{self.item.weight[0] * self.quantity}{self.item.weight[1]}] x{self.quantity}"
     
     def update_weight(self):
         self.weight = [self.item.weight[0] * self.quantity, self.item.weight[1]]

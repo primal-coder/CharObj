@@ -4,7 +4,7 @@ long_description=open('README.md').read()
 
 setup(
     name='CharObj',
-    version='0.1.3',
+    version='0.2.0',
     description='A package for creating objects for a text-based RPG',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -15,7 +15,7 @@ setup(
     install_requires=[
         'pyglet',
         'dicepy',
-        'gridengine_framework>=0.5.9'
+        'gridengine_framework'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

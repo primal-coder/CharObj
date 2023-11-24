@@ -161,6 +161,9 @@ class _Goods(QuietDict):
     def _create_item_classes(self):
         for item_kind in ['general', 'trade', 'tools']:
             setattr(self, f'{item_kind}', type(f'{item_kind.capitalize()}', (QuietDict, ), {}))
+        self.general = self.general('general')
+        self.trade = self.trade('trade')
+        self.tools = self.tools('tools')
         for _item_name, _item_attr in _GENERAL_DICT.items():
             _item_class = self._create_item(_item_name)
             if _item_class is not None:
@@ -195,6 +198,13 @@ class _Goods(QuietDict):
                     _item_class
                     )
                 self.tools_manifest.append(_item_name)
+        for _item_name, _item_attr in self._goods_classes.items():
+            if _item_name in self.general_manifest:
+                self.general.update({_item_name: _item_attr})
+            elif _item_name in self.trade_manifest:
+                self.trade.update({_item_name: _item_attr})
+            elif _item_name in self.tools_manifest:
+                self.tools.update({_item_name: _item_attr})
         self.update(self._goods_classes)
 
     def get(self, item_name: str, grid: object = None, cell: object = None):
@@ -205,6 +215,7 @@ class _Goods(QuietDict):
             cell = grid[cell] if cell is not None and isinstance(cell, str) else cell
             cell.add_object(item)
             return item
+
         return self[item_name]
 
     def _create_griditem(self, item_name, grid, cell: _Union[str, type(Cell)]):

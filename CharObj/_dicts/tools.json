@@ -379,8 +379,8 @@
         "quest_item": false,
         "relic": false
     },
-    "Calipers": {
-        "name": "Calipers",
+    "Tongs": {
+        "name": "Tongs",
         "category": "TOOLS",
         "weight": [
             0.5,
@@ -388,7 +388,7 @@
         ],
         "material": "METAL",
         "mundane": true,
-        "description": "A set of calipers for removing molten metal from a kiln",
+        "description": "Long handled tools used to hold and manipulate hot metals safely",
         "quality": "COMMON",
         "value": [
             5,
@@ -756,6 +756,25 @@
             "gp"
         ],
         "binding": "BOUND",
+        "quest_item": false,
+        "relic": false
+    },
+    "Axe": {
+        "name": "Axe",
+        "category": "TOOLS",
+        "weight": [
+            2,
+            "kg"
+        ],
+        "material": "METAL",
+        "mundane": true,
+        "description": "A single-edged axe for chopping wood and other materials",
+        "quality": "COMMON",
+        "value": [
+            5,
+            "sp"
+        ],
+        "binding": "UNBOUND",
         "quest_item": false,
         "relic": false
     }

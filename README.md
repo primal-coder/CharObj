@@ -59,6 +59,7 @@ False
 
 ### Command-Line
 
+# Get
 ```bash
 $ python -m CharObj Get 1
 Gold Coin
@@ -76,3 +77,47 @@ Gold Coin
  'value': [1, 'gp'],
  'weight': [0.01, 'kg']}
 ```
+
+# Make
+
+The Make command can be used to create a new item. `CharObj Make` can be followed by the item's category. Each category can be executed with the `-h` flag to see the required arguments. The following example creates a new item in the 'Weapon' category.
+
+```bash
+$ python -m CharObj Make Weapon --item_name 'Dragonbone Blade' --slot MAIN_HAND --weight '3.5 kg' --material DRAGONBONE --mundane True --description 'A sharpened blade crafted from the bones of a defeated dragon.' --quality RARE --value '100 gp' --binding False --quest_item False --relic False --damage '1 d12' --damage_type SLASHING --range '5 FEET' --properties 'FINESSE LIGHT VERSATILE' --proficiency MARTIAL
+```
+
+Once made an item can be accessed in the same way as a pre-existing item, using the CLI ...
+    
+    ```bash
+    $ python -m CharObj Get 'Dragonbone_Blade'
+    ```
+
+Or the module ...
+
+    ```python
+    >>> import CharObj
+    >>> dragonbone_blade = CharObj.Armory.dragonboneblade()
+    >>> print(dragonbone_blade.name)
+    ```
+
+Make can also be used interactively. The following example creates a new item in the 'Trade' category.
+
+    ```bash
+    >>> python -m CharObj Make -i
+    Create an item?
+    Press enter to continue. Press Ctrl+C to cancel.
+    What category of item would you like to create?
+    Options: (a)rmor, (w)eapon, (g)eneral, (t)rade, (T)oolt
+    Creating Trade item.
+    item_name:  Brightsteel Ore
+    category:  ORE
+    weight:  0.5 kg
+    material:  BRIGHTSTEEL
+    mundane:  True
+    description:  A chunk of brightsteel ore.
+    quality:  COMMON
+    value:  5 gp
+    binding:  False
+    quest_item:  False
+    relic:  False
+    ```

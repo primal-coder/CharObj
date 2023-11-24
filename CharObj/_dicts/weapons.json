@@ -1494,5 +1494,40 @@
             "VERSATILE"
         ],
         "category": "WEAPON"
+    },
+    "Dragonbone Blade": {
+        "name": "Dragonbone Blade",
+        "slot": "MAIN_HAND",
+        "category": "WEAPON",
+        "weight": [
+            3.5,
+            "kg"
+        ],
+        "material": "DRAGONBONE",
+        "mundane": "True",
+        "description": "A sharpened blade crafted from the bones of a defeated dragon.",
+        "quality": "RARE",
+        "value": [
+            100,
+            "gp"
+        ],
+        "damage": [
+            1,
+            "d12"
+        ],
+        "damage_type": "SLASHING",
+        "proficiency": "MARTIAL",
+        "weapon_range": [
+            5,
+            "FEET"
+        ],
+        "weapon_properties": [
+            "FINESSE",
+            "LIGHT",
+            "VERSATILE"
+        ],
+        "binding": "False",
+        "quest_item": "False",
+        "relic": "False"
     }
 }
